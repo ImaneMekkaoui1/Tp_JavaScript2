@@ -26,11 +26,13 @@ Cet exercice consiste à créer un formulaire contenant :
 
 Lorsque l'utilisateur clique sur le bouton, les valeurs des deux champs sont échangées.
 
-### Principe
+### Explications du code
 
-1. Récupérer les valeurs des deux champs
-2. Utiliser une variable temporaire
-3. Permuter les valeurs
+- `document.getElementById("t1").value` récupère la valeur du premier champ.  
+- Une variable temporaire est utilisée pour stocker la valeur d’un champ avant la permutation.  
+- Les valeurs sont ensuite échangées entre les deux champs.
+
+**Principe clé :** utilisation d’une variable temporaire pour échanger deux valeurs.
 
 ---
 
@@ -45,15 +47,17 @@ Cet exercice consiste à créer une calculatrice permettant d'effectuer les opé
 
 ### Interface
 
-La page contient :
+- Deux champs pour saisir les nombres
+- Un champ pour afficher le résultat
+- Quatre boutons pour les opérations
 
-* Deux champs pour saisir les nombres
-* Un champ pour afficher le résultat
-* Quatre boutons pour les opérations
+### Explications du code
 
-### Fonctionnement
+- `Number(document.getElementById("n1").value)` convertit la valeur du champ texte en nombre.  
+- Chaque bouton déclenche une fonction correspondant à l’opération (`add`, `sub`, `mul`, `div`).  
+- Le résultat est affiché dynamiquement dans le champ `res`.
 
-Lorsqu'un bouton est cliqué, l'opération correspondante est exécutée en JavaScript et le résultat est affiché.
+**Principe clé :** récupération de valeurs dans le DOM et manipulation des nombres en JavaScript.
 
 ---
 
