@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Calculateur IMC</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:40px;
+}
+
+button{
+background-color:blue;
+color:white;
+padding:10px 20px;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+button:hover{
+background-color:darkblue;
+}
+
+#resultat{
+margin-top:20px;
+font-size:18px;
+font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>Calculateur d'IMC</h2>
+
+<label>Poids (kg):</label>
+<input type="number" id="poids"><br><br>
+
+<label>Taille (m):</label>
+<input type="number" id="taille" step="0.01"><br><br>
+
+<button onclick="calculIMC()">Calculer</button>
+
+<p id="resultat"></p>
+
+<script>
+
+function calculIMC(){
+
+let p = Number(document.getElementById("poids").value)
+let t = Number(document.getElementById("taille").value)
+
+let imc = p / (t * t)
+
+let message=""
+
+if(imc < 18.5){
+message="Vous êtes en état de maigreur."
+}
+else if(imc < 25){
+message="Vous avez un poids normal."
+}
+else if(imc < 30){
+message="Vous êtes en surpoids."
+}
+else{
+message="Vous êtes en état d'obésité."
+}
+
+document.getElementById("resultat").innerHTML =
+"Votre IMC est de " + imc.toFixed(2) + ". " + message
+
+}
+
+</script>
+
+</body>
+</html>

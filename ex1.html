@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permutation</title>
+</head>
+<body>
+    
+    
+        <input type="text" id="t1"><br>
+        <input type="text" id="t2">
+
+        <button onclick="permute()">Permuter</button>
+
+<script>
+    function permute(){
+        let a = document.getElementById("t1").value
+        let b = document.getElementById("t2").value
+
+    document.getElementById("t1").value = b
+    document.getElementById("t2").value = a
+}
+</script>
+    
+</body>
+</html>

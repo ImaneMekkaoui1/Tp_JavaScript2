@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Calculatrice Scientifique</title>
+
+<style>
+
+body{
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+background:#f2f2f2;
+font-family:Arial;
+}
+
+.calculator{
+width:320px;
+background:#222;
+padding:20px;
+border-radius:10px;
+}
+
+#screen{
+width:100%;
+height:50px;
+font-size:22px;
+margin-bottom:10px;
+text-align:right;
+padding:5px;
+}
+
+.buttons{
+display:grid;
+grid-template-columns: repeat(5,1fr);
+gap:5px;
+}
+
+button{
+padding:12px;
+font-size:14px;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+button:hover{
+background:#ddd;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="calculator">
+
+<input type="text" id="screen">
+
+<div class="buttons">
+
+<button onclick="clearScreen()">CE</button>
+<button onclick="append('%')">%</button>
+<button onclick="inv()">Inv</button>
+<button onclick="sin()">sin</button>
+<button onclick="ln()">ln</button>
+
+<button onclick="append('7')">7</button>
+<button onclick="append('8')">8</button>
+<button onclick="append('9')">9</button>
+<button onclick="append('Math.PI')">π</button>
+<button onclick="cos()">cos</button>
+
+<button onclick="append('4')">4</button>
+<button onclick="append('5')">5</button>
+<button onclick="append('6')">6</button>
+<button onclick="append('0')">0</button>
+<button onclick="tan()">tan</button>
+
+<button onclick="append('1')">1</button>
+<button onclick="append('2')">2</button>
+<button onclick="append('3')">3</button>
+<button onclick="exp()">EXP</button>
+<button onclick="square()">x²</button>
+
+<button onclick="power()">xʸ</button>
+<button onclick="sqrt()">√</button>
+<button onclick="calculate()">=</button>
+<button onclick="turnOn()">ON</button>
+<button onclick="append('*')">x</button>
+
+</div>
+</div>
+
+<script>
+
+function append(value){
+document.getElementById("screen").value += value
+}
+
+function clearScreen(){
+document.getElementById("screen").value = ""
+}
+
+function calculate(){
+let exp = document.getElementById("screen").value
+document.getElementById("screen").value = eval(exp)
+}
+
+function sin(){
+let x = document.getElementById("screen").value
+document.getElementById("screen").value = Math.sin(x)
+}
+
+function cos(){
+let x = document.getElementById("screen").value
+document.getElementById("screen").value = Math.cos(x)
+}
+
+function tan(){
+let x = document.getElementById("screen").value
+document.getElementById("screen").value = Math.tan(x)
+}
+
+function log(){
+let x = document.getElementById("screen").value
+document.getElementById("screen").value = Math.log10(x)
+}
+
+function ln(){
+let x = document.getElementById("screen").value
+document.getElementById("screen").value = Math.log(x)
+}
+
+function sqrt(){
+let x = document.getElementById("screen").value
+document.getElementById("screen").value = Math.sqrt(x)
+}
+
+function square(){
+let x = document.getElementById("screen").value
+document.getElementById("screen").value = x*x
+}
+
+function power(){
+append("**")
+}
+
+function inv(){
+let x = document.getElementById("screen").value
+document.getElementById("screen").value = 1/x
+}
+
+function exp(){
+append("e")
+}
+
+function turnOn(){
+clearScreen()
+}
+
+</script>
+
+</body>
+</html>
