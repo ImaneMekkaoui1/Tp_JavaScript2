@@ -1,179 +1,53 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<title>Calculatrice Scientifique</title>
-
-<style>
-body{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-    background:#f2f2f2;
-    font-family:Arial;
-}
-
-.calculator{
-    width:350px;
-    background:#222;
-    padding:15px;
-    border-radius:10px;
-}
-
-#screen{
-    width:100%;
-    height:50px;
-    font-size:22px;
-    margin-bottom:10px;
-    text-align:right;
-    padding:5px;
-    color:#000;
-}
-
-.buttons{
-    display:grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap:5px;
-}
-
-button{
-    padding:15px;
-    font-size:16px;
-    border:none;
-    border-radius:5px;
-    cursor:pointer;
-    background:#ccc;
-}
-
-button:hover{
-    background:#bbb;
-}
-</style>
+  <meta charset="UTF-8">
+  <title>Calculatrice</title>
+  <link rel="stylesheet" href="styleEx4.css">
 </head>
 <body>
 
 <div class="calculator">
+  <input type="text" id="display" disabled>
 
-<input type="text" id="screen" readonly>
-
-<div class="buttons">
-    <!-- Ligne 1: opérateurs spéciaux -->
+  <div class="buttons">
+    <button onclick="clearDisplay()">CE</button>
+    <button onclick="append('%')">%</button>
     <button onclick="append('(')">(</button>
     <button onclick="append(')')">)</button>
-    <button onclick="append('%')">%</button>
-    <button onclick="clearScreen()">CE</button>
 
-    <!-- Ligne 2: fonctions mathématiques -->
-    <button onclick="inv()">Inv</button>
-    <button onclick="sin()">sin</button>
-    <button onclick="ln()">ln</button>
-    <button onclick="append('÷')">÷</button>
-
-    <!-- Ligne 3: nombres et fonctions -->
+    <button onclick="append('Math.sin(')">sin</button>
+    <button onclick="append('Math.log(')">ln</button>
     <button onclick="append('7')">7</button>
     <button onclick="append('8')">8</button>
     <button onclick="append('9')">9</button>
-    <button onclick="append('×')">×</button>
+    <button onclick="append('/')">÷</button>
 
-    <!-- Ligne 4: nombres et fonctions -->
+    <button onclick="append('Math.PI')">π</button>
+    <button onclick="append('Math.cos(')">cos</button>
+    <button onclick="append('Math.log10(')">log</button>
     <button onclick="append('4')">4</button>
     <button onclick="append('5')">5</button>
     <button onclick="append('6')">6</button>
+    <button onclick="append('*')">×</button>
+
+    <button onclick="append('Math.E')">e</button>
+    <button onclick="append('Math.tan(')">tan</button>
+    <button onclick="append('Math.sqrt(')">√</button>
+    <button onclick="append('3')">3</button>
+    <button onclick="append('2')">2</button>
+    <button onclick="append('1')">1</button>
     <button onclick="append('-')">-</button>
 
-    <!-- Ligne 5: nombres et fonctions -->
-    <button onclick="append('1')">1</button>
-    <button onclick="append('2')">2</button>
-    <button onclick="append('3')">3</button>
-    <button onclick="append('+')">+</button>
-
-    <!-- Ligne 6: fonctions avancées et 0 -->
-    <button onclick="append('0')">0</button>
+    <button onclick="append('**')">x^</button>
+    <button onclick="append('Math.exp(')">EXP</button>
     <button onclick="append('.')">.</button>
+    <button onclick="append('0')">0</button>
     <button onclick="calculate()">=</button>
-    <button onclick="sqrt()">√</button>
-
-    <!-- Ligne 7: fonctions supplémentaires -->
-    <button onclick="exp()">EXP</button>
-    <button onclick="square()">x²</button>
-    <button onclick="power()">x^y</button>
-    <button onclick="append('π')">π</button>
-</div>
+    <button onclick="append('+')">+</button>
+  </div>
 </div>
 
-<script>
-function append(value){
-    let screen = document.getElementById("screen");
-    if(value === '÷') value = '/';
-    if(value === '×') value = '*';
-    if(value === 'π') value = Math.PI;
-    screen.value += value;
-}
-
-function clearScreen(){
-    document.getElementById("screen").value = "";
-}
-
-function calculate(){
-    let screen = document.getElementById("screen");
-    try{
-        screen.value = eval(screen.value);
-    }catch{
-        screen.value = "Erreur";
-    }
-}
-
-function sin(){
-    let screen = document.getElementById("screen");
-    screen.value = Math.sin(Number(screen.value));
-}
-
-function cos(){
-    let screen = document.getElementById("screen");
-    screen.value = Math.cos(Number(screen.value));
-}
-
-function tan(){
-    let screen = document.getElementById("screen");
-    screen.value = Math.tan(Number(screen.value));
-}
-
-function ln(){
-    let screen = document.getElementById("screen");
-    screen.value = Math.log(Number(screen.value));
-}
-
-function log(){
-    let screen = document.getElementById("screen");
-    screen.value = Math.log10(Number(screen.value));
-}
-
-function sqrt(){
-    let screen = document.getElementById("screen");
-    screen.value = Math.sqrt(Number(screen.value));
-}
-
-function square(){
-    let screen = document.getElementById("screen");
-    screen.value = Number(screen.value) ** 2;
-}
-
-function power(){
-    let screen = document.getElementById("screen");
-    screen.value += "**";
-}
-
-function exp(){
-    let screen = document.getElementById("screen");
-    screen.value += "e";
-}
-
-function inv(){
-    let screen = document.getElementById("screen");
-    screen.value = 1 / Number(screen.value);
-}
-</script>
-
+<script src="scriptEx4.js"></script>
 </body>
 </html>
